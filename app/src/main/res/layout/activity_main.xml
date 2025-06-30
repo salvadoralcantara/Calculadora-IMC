@@ -24,14 +24,25 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"/>
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageMale"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:tint="#ffffff"
+                app:tint="#ffffff"
                 android:src="@drawable/ic_male"/>
+
+            <TextView
+                android:id="@+id/textMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_text"
+                android:textAllCaps="true"
+                android:textSize="21dp"
+                android:text="hombre"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
 
@@ -49,7 +60,7 @@
             android:id="@+id/imageFemale"
             android:layout_width="76dp"
             android:layout_height="76dp"
-            android:tint="#ffffff"
+            app:tint="#ffffff"
             android:src="@drawable/ic_female"/>
 
     </androidx.cardview.widget.CardView>
