@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CalculadoraIMC</string>
+    <string name="male">Hombre</string>
+    <string name="female">Mujer</string>
 </resources>
