@@ -32,17 +32,17 @@
                 android:id="@+id/imageMale"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:tint="@color/white"
-                android:src="@drawable/ic_male"/>
+                android:src="@drawable/ic_male"
+                app:tint="@color/white" />
 
             <TextView
                 android:id="@+id/textMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/title_text"
+                android:text="@string/male"
                 android:textAllCaps="true"
-                android:textSize="21dp"
-                android:text="@string/male"/>
+                android:textColor="@color/title_text"
+                android:textSize="21dp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
@@ -85,16 +85,27 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        app:cardBackgroundColor="@color/background_component"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewMale"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="17dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Altura"
-            android:textColor="@color/title_text"
-            android:textSize="25dp"
+            android:gravity="center"
+            android:layout_margin="17dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/height"
+                android:textAllCaps="true"
+                android:textColor="@color/title_text"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
 
