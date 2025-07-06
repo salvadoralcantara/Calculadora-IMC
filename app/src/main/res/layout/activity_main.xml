@@ -95,15 +95,34 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="17dp"
             android:gravity="center"
-            android:layout_margin="17dp">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/height"
                 android:textAllCaps="true"
-                android:textColor="@color/title_text"/>
+                android:textColor="@color/title_text" />
+
+            <TextView
+                android:id="@+id/textHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="120cm"
+                android:textColor="@color/title_text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/sliderRangeHeight"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:stepSize="1"
+                android:valueFrom="120"
+                android:valueTo="200" />
+
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -1,19 +1,13 @@
+// MainActivity.kt
 package com.example.calculadoraimc
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.cardview.widget.CardView
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
-import com.example.calculadoraimc.ui.theme.CalculadoraIMCTheme
+import com.google.android.material.slider.RangeSlider
+import java.text.DecimalFormat
 
 class MainActivity : ComponentActivity() {
 
@@ -22,6 +16,8 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var viewMale: CardView
     private lateinit var viewFemale: CardView
+    private lateinit var textHeight: TextView
+    private lateinit var sliderRangeHeight: RangeSlider
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +30,8 @@ class MainActivity : ComponentActivity() {
     private fun initialComponents() {
         viewMale = findViewById(R.id.viewMale)
         viewFemale = findViewById(R.id.viewFemale)
+        textHeight = findViewById(R.id.textHeight)
+        sliderRangeHeight = findViewById(R.id.sliderRangeHeight)
 
     }
 
@@ -45,6 +43,11 @@ class MainActivity : ComponentActivity() {
         viewFemale.setOnClickListener {
             changeGender()
             setGenderColor()
+        }
+        sliderRangeHeight.addOnChangeListener { _, value, _ ->
+            val df = DecimalFormat("#.##")
+            val result = df.format(value)
+            textHeight.text = "$result cm"
         }
     }
 
@@ -71,4 +74,3 @@ class MainActivity : ComponentActivity() {
         setGenderColor()
     }
 }
-
