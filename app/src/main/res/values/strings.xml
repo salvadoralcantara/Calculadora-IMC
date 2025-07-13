@@ -3,4 +3,27 @@
     <string name="male">Hombre</string>
     <string name="female">Mujer</string>
     <string name="height">Altura</string>
+    <string name="weight">Peso</string>
+    <string name="age">Edad</string>
+    <string name="calculate">Calcular</string>
+    <string name="textResult">Tu resultado es:</string>
+    <string name="Re_calculate">Re-calcular</string>
+
+    <string name="error">error</string>
+
+    <string name="Underweight">Bajo peso</string>
+    <string name="UnderweightDescription">Tu IMC es menor a 18.5, lo que indica que
+        tienes un bajo peso.</string>
+
+    <string name="Normal">Peso Normal</string>
+    <string name="NormalDescription">Tu IMC está entre 18.5 y 24.9, lo que indica que
+        tienes un peso saludable.</string>
+
+    <string name="Overweight">Sobrepeso</string>
+    <string name="OverweightDescription">Tu IMC está entre 25 y 29.9, lo que indica que
+        tienes sobrepeso.</string>
+
+    <string name="Obesity">Obesidad</string>
+    <string name="ObesityDescription">Tu IMC es mayor a 30, lo que indica que tienes obesidad.</string>
+
 </resources>

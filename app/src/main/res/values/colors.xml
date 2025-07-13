@@ -13,4 +13,10 @@
     <color name="background_app">#106b87</color>
     <color name="background_button">#157a8c</color>
     <color name="title_text">#b3aca4</color>
+    <color name="background_button2">#FF3700B3</color>
+
+    <color name="Underweight">#FFEB3B</color>
+    <color name="Normal">#4CAF50</color>
+    <color name="Overweight">#FF9800</color>
+    <color name="Obesity">#F44336</color>
 </resources>
