@@ -8,12 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background_component">#260d33</color>
-    <color name="background_component_selected">#003f69</color>
-    <color name="background_app">#106b87</color>
-    <color name="background_button">#157a8c</color>
-    <color name="title_text">#b3aca4</color>
-    <color name="background_button2">#FF3700B3</color>
+    <color name="background_component">#23272F</color>
+    <color name="background_component_selected">#1565C0</color>
+    <color name="background_app">#A2A4A4</color>
+    <color name="background_button">#2979FF</color>
+    <color name="title_text">#C7C1C1</color>
+    <color name="background_button2">#00C853</color>
 
     <color name="Underweight">#FFEB3B</color>
     <color name="Normal">#4CAF50</color>

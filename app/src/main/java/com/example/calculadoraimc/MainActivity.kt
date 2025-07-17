@@ -68,12 +68,18 @@ class MainActivity : ComponentActivity() {
 
     private fun initListeners() {
         viewMale.setOnClickListener {
-            changeGender()
-            setGenderColor()
+            if (!isMale) {
+                isMale = true
+                isFemale = false
+                setGenderColor()
+            }
         }
         viewFemale.setOnClickListener {
-            changeGender()
-            setGenderColor()
+            if (!isFemale) {
+                isMale = false
+                isFemale = true
+                setGenderColor()
+            }
         }
         sliderRangeHeight.addOnChangeListener { _, value, _ ->
             val df = DecimalFormat("#.##") //df is DecimalFormat instance to format the height
@@ -122,11 +128,6 @@ class MainActivity : ComponentActivity() {
     }
     private fun setAge() {
         textAge.text = currentAge.toString()
-    }
-
-    private fun changeGender() {
-        isMale = !isMale
-        isFemale = !isFemale
     }
 
     private fun setGenderColor() {
