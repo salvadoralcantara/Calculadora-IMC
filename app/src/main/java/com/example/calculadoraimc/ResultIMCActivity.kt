@@ -3,6 +3,7 @@ package com.example.calculadoraimc
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
@@ -12,14 +13,36 @@ class ResultIMCActivity : AppCompatActivity() {
     private lateinit var tvDescription: TextView
     private lateinit var tvIMC: TextView
     private lateinit var btnReCalculate: Button
+    private lateinit var ivResult: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result_imcactivity)
         val result: Double = intent.extras?.getDouble(MainActivity.IMC_KEY) ?: -1.0
+        val status: String? = intent.getStringExtra("IMC_STATUS")
+        val gender: String? = intent.getStringExtra("GENDER") // <-- Recibe el género
         initComponents()
+        setResultImage(status, gender)
         initUI(result)
         initListeners()
+    }
+
+    private fun setResultImage(status: String?, gender: String?) {
+        val imageRes = when (gender) {
+            "Femenino" -> when (status) {
+                "Bajo" -> R.drawable.imc_bajo_f
+                "Normal" -> R.drawable.imc_normal_f
+                "Alto" -> R.drawable.imc_alto_f
+                else -> R.drawable.imc_normal_f
+            }
+            else -> when (status) {
+                "Bajo" -> R.drawable.imc_bajo
+                "Normal" -> R.drawable.imc_normal
+                "Alto" -> R.drawable.imc_alto
+                else -> R.drawable.imc_normal
+            }
+        }
+        ivResult.setImageResource(imageRes)
     }
 
     private fun initUI(result: Double) {
@@ -58,6 +81,7 @@ class ResultIMCActivity : AppCompatActivity() {
         tvResult = findViewById(R.id.tvResult)
         tvDescription = findViewById(R.id.tvDescription)
         btnReCalculate = findViewById(R.id.btnReCalculate)
+        ivResult = findViewById(R.id.ivResult)
     }
 
     private fun initListeners() {

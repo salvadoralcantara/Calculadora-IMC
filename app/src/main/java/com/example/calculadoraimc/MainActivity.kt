@@ -1,10 +1,9 @@
-// MainActivity.kt
 package com.example.calculadoraimc
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.cardview.widget.CardView
@@ -19,7 +18,7 @@ class MainActivity : ComponentActivity() {
     private var isFemale: Boolean = true
     private var currentWeight = 63
     private var currentAge = 23
-    private var currentHeight = 120
+    private var currentHeight = 160
 
     private lateinit var viewMale: CardView
     private lateinit var viewFemale: CardView
@@ -53,17 +52,13 @@ class MainActivity : ComponentActivity() {
         viewFemale = findViewById(R.id.viewFemale)
         textHeight = findViewById(R.id.textHeight)
         sliderRangeHeight = findViewById(R.id.sliderRangeHeight)
-        // Weight section
         btnSubtractWeight = findViewById(R.id.btnSubtractWeight)
         btnPlusWeight = findViewById(R.id.btnPlusWeight)
         textWeight = findViewById(R.id.textWeight)
-        // Age section
         btnSubtractAge = findViewById(R.id.btnSubtractAge)
         btnPlusAge = findViewById(R.id.btnPlusAge)
         textAge = findViewById(R.id.textAge)
-
         btnCalculate = findViewById(R.id.btnCalculate)
-
     }
 
     private fun initListeners() {
@@ -82,19 +77,18 @@ class MainActivity : ComponentActivity() {
             }
         }
         sliderRangeHeight.addOnChangeListener { _, value, _ ->
-            val df = DecimalFormat("#.##") //df is DecimalFormat instance to format the height
+            val df = DecimalFormat("#.##")
             currentHeight = df.format(value).toInt()
             textHeight.text = "$currentHeight cm"
         }
         btnSubtractWeight.setOnClickListener {
             currentWeight -= 1
             setWeight()
-            }
+        }
         btnPlusWeight.setOnClickListener {
             currentWeight += 1
             setWeight()
         }
-        // Age section
         btnSubtractAge.setOnClickListener {
             currentAge -= 1
             setAge()
@@ -107,25 +101,37 @@ class MainActivity : ComponentActivity() {
             val result = calculeteIMC()
             navigeteToResultIMCActivity(result)
         }
-
     }
 
     private fun navigeteToResultIMCActivity(result: Double) {
+        val status = getIMCStatus(result)
         val intent = Intent(this, ResultIMCActivity::class.java)
         intent.putExtra(IMC_KEY, result)
+        intent.putExtra("IMC_STATUS", status)
+        // Envía el género seleccionado
+        val gender = if (isFemale) "Femenino" else "Masculino"
+        intent.putExtra("GENDER", gender)
         startActivity(intent)
+    }
+
+    private fun getIMCStatus(imc: Double): String {
+        return when {
+            imc < 18.5 -> "Bajo"
+            imc < 25 -> "Normal"
+            else -> "Alto"
+        }
     }
 
     private fun calculeteIMC(): Double {
         val df = DecimalFormat("#.##")
         val imc = currentWeight / (currentHeight.toDouble() / 100.0 * currentHeight.toDouble() / 100.0)
         return df.format(imc).toDouble()
-
     }
 
     private fun setWeight() {
         textWeight.text = currentWeight.toString()
     }
+
     private fun setAge() {
         textAge.text = currentAge.toString()
     }
